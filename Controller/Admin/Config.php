@@ -38,7 +38,6 @@ final class Config extends AbstractController
     public function saveAction()
     {
         if ($this->request->hasPost('content')) {
-
             $content = $this->request->getPost('content');
 
             if ($this->getAboutBoxManager()->update($content)) {
@@ -68,13 +67,8 @@ final class Config extends AbstractController
     {
         $this->view->getPluginBag()
                    ->load($this->getWysiwygPluginName())
-                   ->appendScript($this->getWithAssetPath('/admin/box.form.js'));
+                   ->appendScript('@AboutBox/admin/box.form.js');
 
-        $this->view->getBreadcrumbBag()->add(array(
-            array(
-                'link' => '#',
-                'name' => 'About box'
-            )
-        ));
+        $this->view->getBreadcrumbBag()->addOne('About box');
     }
 }
