@@ -16,64 +16,64 @@ use AboutBox\Storage\AboutBoxMapperInterface;
 
 final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInterface
 {
-	/**
-	 * {@inheritDoc}
-	 */
-	protected $table = 'bono_module_aboutbox';
+    /**
+     * {@inheritDoc}
+     */
+    protected $table = 'bono_module_aboutbox';
 
-	/**
-	 * Fetches box's content
-	 * 
-	 * @return string
-	 */
-	public function fetch()
-	{
-		return $this->db->select('content')
-						->from($this->table)
-						->whereEquals('lang_id', $this->getLangId())
-						->query('content');
-	}
+    /**
+     * Fetches box's content
+     * 
+     * @return string
+     */
+    public function fetch()
+    {
+        return $this->db->select('content')
+                        ->from($this->table)
+                        ->whereEquals('lang_id', $this->getLangId())
+                        ->query('content');
+    }
 
-	/**
-	 * Inserts box's text
-	 * 
-	 * @param string $content
-	 * @return boolean
-	 */
-	public function insert($content)
-	{
-		return $this->db->insert($this->table, array(
+    /**
+     * Inserts box's text
+     * 
+     * @param string $content
+     * @return boolean
+     */
+    public function insert($content)
+    {
+        return $this->db->insert($this->table, array(
 
-			'lang_id'	=> $this->getLangId(),
-			'content'	=> $content
+            'lang_id'   => $this->getLangId(),
+            'content'   => $content
 
-		))->execute();
-	}
+        ))->execute();
+    }
 
-	/**
-	 * Updates box's content
-	 * 
-	 * @param string $content
-	 * @return boolean
-	 */
-	public function update($content)
-	{
-		return $this->db->update($this->table, array('content' => $content))
-						->whereEquals('lang_id', $this->getLangId())
-						->execute();
-	}
+    /**
+     * Updates box's content
+     * 
+     * @param string $content
+     * @return boolean
+     */
+    public function update($content)
+    {
+        return $this->db->update($this->table, array('content' => $content))
+                        ->whereEquals('lang_id', $this->getLangId())
+                        ->execute();
+    }
 
-	/**
-	 * Whether content exists associated with initial language id
-	 * 
-	 * @return boolean
-	 */
-	public function exists()
-	{
-		return $this->db->select()
-						->count('content', 'count')
-						->from($this->table)
-						->whereEquals('lang_id', $this->getLangId())
-						->query('count') != 0;
-	}
+    /**
+     * Whether content exists associated with initial language id
+     * 
+     * @return boolean
+     */
+    public function exists()
+    {
+        return $this->db->select()
+                        ->count('content', 'count')
+                        ->from($this->table)
+                        ->whereEquals('lang_id', $this->getLangId())
+                        ->query('count') != 0;
+    }
 }

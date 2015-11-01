@@ -16,15 +16,15 @@ use AboutBox\Service\AboutBoxManager;
 
 final class Module extends AbstractCmsModule
 {
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getServiceProviders()
-	{
-		$aboutBoxMapper = $this->getMapper('/AboutBox/Storage/MySQL/AboutBoxMapper');
+    /**
+     * {@inheritDoc}
+     */
+    public function getServiceProviders()
+    {
+        $aboutBoxMapper = $this->getMapper('/AboutBox/Storage/MySQL/AboutBoxMapper');
 
-		return array(
-			'aboutBoxManager' => new AboutBoxManager($aboutBoxMapper, $this->getHistoryManager())
-		);
-	}
+        return array(
+            'aboutBoxManager' => new AboutBoxManager($aboutBoxMapper, $this->getHistoryManager())
+        );
+    }
 }

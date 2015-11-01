@@ -10,13 +10,13 @@
  */
 
 return array(
-	
-	'/admin/module/about-box' => array(
-		'controller' => 'Admin:Config@indexAction',
-	),
-	
-	'/admin/module/about-box/save.ajax'	=> array(
-		'controller' => 'Admin:Config@saveAction',
-		'disallow' => array('guest')
-	)
+    
+    '/admin/module/about-box' => array(
+        'controller' => 'Admin:Config@indexAction',
+    ),
+    
+    '/admin/module/about-box/save.ajax' => array(
+        'controller' => 'Admin:Config@saveAction',
+        'disallow' => array('guest')
+    )
 );

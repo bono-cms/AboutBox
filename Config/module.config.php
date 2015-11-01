@@ -10,11 +10,11 @@
  */
 
 return array(
-	'module' => array(
-		'url'	 => '/admin/module/about-box',
-		'icon'	 => '/module/AboutBox/Assets/aboutbox.png',
-		'name'	 => 'About box',
-		'order'	 => 5,
-		'description' => 'About box module allows to handle small info about you or your company on your blog'
-	)
+    'module' => array(
+        'url'    => '/admin/module/about-box',
+        'icon'   => '/module/AboutBox/Assets/aboutbox.png',
+        'name'   => 'About box',
+        'order'  => 5,
+        'description' => 'About box module allows to handle small info about you or your company on your blog'
+    )
 );

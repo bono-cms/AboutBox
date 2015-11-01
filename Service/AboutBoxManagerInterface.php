@@ -13,18 +13,18 @@ namespace AboutBox\Service;
 
 interface AboutBoxManagerInterface
 {
-	/**
-	 * Fetches box's content
-	 * 
-	 * @return string
-	 */
-	public function fetch();
+    /**
+     * Fetches box's content
+     * 
+     * @return string
+     */
+    public function fetch();
 
-	/**
-	 * Updates box's data
-	 * 
-	 * @param string $content New content
-	 * @return boolean
-	 */
-	public function update($content);
+    /**
+     * Updates box's data
+     * 
+     * @param string $content New content
+     * @return boolean
+     */
+    public function update($content);
 }

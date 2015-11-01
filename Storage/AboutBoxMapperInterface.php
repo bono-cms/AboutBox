@@ -13,33 +13,33 @@ namespace AboutBox\Storage;
 
 interface AboutBoxMapperInterface
 {
-	/**
-	 * Fetches box's content
-	 * 
-	 * @return string
-	 */
-	public function fetch();
+    /**
+     * Fetches box's content
+     * 
+     * @return string
+     */
+    public function fetch();
 
-	/**
-	 * Inserts box's text
-	 * 
-	 * @param string $content
-	 * @return boolean
-	 */
-	public function insert($content);
+    /**
+     * Inserts box's text
+     * 
+     * @param string $content
+     * @return boolean
+     */
+    public function insert($content);
 
-	/**
-	 * Updates box's content
-	 * 
-	 * @param string $content
-	 * @return boolean
-	 */
-	public function update($content);
+    /**
+     * Updates box's content
+     * 
+     * @param string $content
+     * @return boolean
+     */
+    public function update($content);
 
-	/**
-	 * Whether content exists associated with initial language id
-	 * 
-	 * @return boolean
-	 */
-	public function exists();	
+    /**
+     * Whether content exists associated with initial language id
+     * 
+     * @return boolean
+     */
+    public function exists();   
 }
