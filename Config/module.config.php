@@ -12,7 +12,7 @@
 return array(
     'module' => array(
         'url'    => '/admin/module/about-box',
-        'icon'   => '/module/AboutBox/Assets/aboutbox.png',
+        'icon'   => 'fa fa-hashtag fa-5x',
         'name'   => 'About box',
         'order'  => 5,
         'description' => 'About box module allows to handle small info about you or your company on your blog'
