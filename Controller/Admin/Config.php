@@ -22,7 +22,11 @@ final class Config extends AbstractController
      */
     public function indexAction()
     {
-        $this->loadPlugins();
+        $this->view->getPluginBag()
+                   ->load($this->getWysiwygPluginName());
+
+        $this->view->getBreadcrumbBag()
+                   ->addOne('About box');
 
         return $this->view->render('about-box', array(
             'title' => 'About box',
@@ -56,19 +60,5 @@ final class Config extends AbstractController
     private function getAboutBoxManager()
     {
         return $this->getModuleService('aboutBoxManager');
-    }
-
-    /**
-     * Loads required plugins for view
-     * 
-     * @return void
-     */
-    private function loadPlugins()
-    {
-        $this->view->getPluginBag()
-                   ->load($this->getWysiwygPluginName())
-                   ->appendScript('@AboutBox/admin/box.form.js');
-
-        $this->view->getBreadcrumbBag()->addOne('About box');
     }
 }
