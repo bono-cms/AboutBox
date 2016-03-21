@@ -19,7 +19,10 @@ final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInter
     /**
      * {@inheritDoc}
      */
-    protected $table = 'bono_module_aboutbox';
+    public static function getTableName()
+    {
+        return self::getWithPrefix('bono_module_aboutbox');
+    }
 
     /**
      * Fetches box's content
@@ -29,7 +32,7 @@ final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInter
     public function fetch()
     {
         return $this->db->select('content')
-                        ->from($this->table)
+                        ->from(self::getTableName())
                         ->whereEquals('lang_id', $this->getLangId())
                         ->query('content');
     }
@@ -42,7 +45,7 @@ final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInter
      */
     public function insert($content)
     {
-        return $this->db->insert($this->table, array(
+        return $this->db->insert(self::getTableName(), array(
 
             'lang_id'   => $this->getLangId(),
             'content'   => $content
@@ -58,7 +61,7 @@ final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInter
      */
     public function update($content)
     {
-        return $this->db->update($this->table, array('content' => $content))
+        return $this->db->update(self::getTableName(), array('content' => $content))
                         ->whereEquals('lang_id', $this->getLangId())
                         ->execute();
     }
@@ -72,7 +75,7 @@ final class AboutBoxMapper extends AbstractMapper implements AboutBoxMapperInter
     {
         return $this->db->select()
                         ->count('content', 'count')
-                        ->from($this->table)
+                        ->from(self::getTableName())
                         ->whereEquals('lang_id', $this->getLangId())
                         ->query('count') != 0;
     }
