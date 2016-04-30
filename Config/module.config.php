@@ -11,7 +11,7 @@
 
 return array(
     'module' => array(
-        'url'    => '/admin/module/about-box',
+        'route'  => 'AboutBox:Admin:Config@indexAction',
         'icon'   => 'fa fa-hashtag fa-5x',
         'name'   => 'About box',
         'order'  => 5,
