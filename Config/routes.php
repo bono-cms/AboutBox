@@ -10,12 +10,10 @@
  */
 
 return array(
-    
-    '/admin/module/about-box' => array(
+    '/%s/module/about-box' => array(
         'controller' => 'Admin:Config@indexAction',
     ),
-    
-    '/admin/module/about-box/save.ajax' => array(
+    '/%s/module/about-box/save.ajax' => array(
         'controller' => 'Admin:Config@saveAction',
         'disallow' => array('guest')
     )
