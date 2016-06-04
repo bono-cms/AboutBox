@@ -62,7 +62,7 @@ final class AboutBoxManager implements AboutBoxManagerInterface
      */
     public function fetch()
     {
-        return Filter::escapeContent($this->aboutBoxMapper->fetch());
+        return Filter::safeTags($this->aboutBoxMapper->fetch());
     }
 
     /**
