@@ -25,34 +25,14 @@ final class AboutBoxManager implements AboutBoxManagerInterface
     private $aboutBoxMapper;
 
     /**
-     * History manager to keep tracks
-     * 
-     * @var \Cms\Service\HistoryManagerInterface
-     */
-    private $historyManager;
-
-    /**
      * State initialization
      * 
      * @param \AboutBox\Storage\AboutBoxMapperInterface $aboutBoxMapper
-     * @param \Cms\Service\HistoryManagerInterface $historyManager
      * @return void
      */
-    public function __construct(AboutBoxMapperInterface $aboutBoxMapper, HistoryManagerInterface $historyManager)
+    public function __construct(AboutBoxMapperInterface $aboutBoxMapper)
     {
         $this->aboutBoxMapper = $aboutBoxMapper;
-        $this->historyManager = $historyManager;
-    }
-
-    /**
-     * Tracks activity
-     * 
-     * @param string $message Message to be tracked
-     * @return boolean
-     */
-    private function track($message)
-    {
-        return $this->historyManager->write('AboutBox', $message, '');
     }
 
     /**
@@ -73,8 +53,6 @@ final class AboutBoxManager implements AboutBoxManagerInterface
      */
     public function update($content)
     {
-        $this->track('About box has been updated');
-
         if ($this->aboutBoxMapper->exists()) {
             return $this->aboutBoxMapper->update($content);
         } else {

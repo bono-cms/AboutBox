@@ -43,8 +43,11 @@ final class Config extends AbstractController
     {
         if ($this->request->hasPost('content')) {
             $content = $this->request->getPost('content');
-
             if ($this->getAboutBoxManager()->update($content)) {
+                // Save in the history
+                $historyService = $this->getService('Cms', 'historyManager');
+                $historyService->write('AboutBox', 'About box has been updated');
+
                 $this->flashBag->set('success', 'About box has been updated successfully');
             }
 

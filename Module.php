@@ -24,7 +24,7 @@ final class Module extends AbstractCmsModule
         $aboutBoxMapper = $this->getMapper('/AboutBox/Storage/MySQL/AboutBoxMapper');
 
         return array(
-            'aboutBoxManager' => new AboutBoxManager($aboutBoxMapper, $this->getHistoryManager())
+            'aboutBoxManager' => new AboutBoxManager($aboutBoxMapper)
         );
     }
 }
