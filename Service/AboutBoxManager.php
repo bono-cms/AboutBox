@@ -15,7 +15,7 @@ use AboutBox\Storage\AboutBoxMapperInterface;
 use Cms\Service\HistoryManagerInterface;
 use Krystal\Security\Filter;
 
-final class AboutBoxManager implements AboutBoxManagerInterface
+final class AboutBoxManager
 {
     /**
      * Any compliant box's mapper
